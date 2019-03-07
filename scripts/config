@@ -1,0 +1,14 @@
+#!/bin/bash
+set -ex
+
+cd $(dirname $0)/..
+
+: ${CONFIG:=$(pwd)/config}
+: ${DIST:=$(pwd)/dist}
+
+echo "about to update config ${ARCH}"
+
+mkdir -p ${DIST}/artifacts
+
+echo "++++++++ updating config ${ARCH}"
+./scripts/build-busybox "config" ${CONFIG}/${ARCH}/buildroot-config ${CONFIG}/busybox-dynamic.config ${DIST}/artifacts/${ARCH}

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+cd $(dirname $0)/..
+
+: ${CONFIG:=$(pwd)/config}
+: ${DIST:=$(pwd)/dist}
+
+echo "about to build ${ARCH}"
+
+mkdir -p ${DIST}/artifacts
+
+echo "++++++++ BUILDING ${ARCH}"
+./scripts/build-busybox "build" ${CONFIG}/${ARCH}/buildroot-config ${CONFIG}/busybox-dynamic.config ${DIST}/artifacts/${ARCH}.tar.xz
