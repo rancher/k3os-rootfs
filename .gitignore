@@ -1,0 +1,11 @@
+/assets
+/build
+/.buildroot-ccache
+/.kernel-ccache
+/config/.dockerfile
+/dist
+/.dl
+/Dockerfile
+*.swp
+/.dapper
+/ci.log
