@@ -2806,7 +2806,7 @@ BR2_PACKAGE_SUDO=y
 # BR2_PACKAGE_ATTR is not set
 BR2_PACKAGE_AUDIT_ARCH_SUPPORTS=y
 # BR2_PACKAGE_AUDIT is not set
-# BR2_PACKAGE_CGROUPFS_MOUNT is not set
+BR2_PACKAGE_CGROUPFS_MOUNT=y
 
 #
 # circus needs Python and a toolchain w/ C++, threads
