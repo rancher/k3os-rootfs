@@ -6,6 +6,9 @@ cd $(dirname $0)/..
 ./scripts/ci 2>&1 | tee build.log
 mv build.log dist/build_${ARCH}.log
 
+# remove unecessary files
+rm -f ./dist/artifacts/*.config
+
 RELEASE_VERSION=$(git tag -l --contains HEAD | head -n 1)
 
 echo
@@ -14,8 +17,8 @@ echo "to publish release to github, run dist/publish.sh"
 echo "#!/bin/sh"> dist/publish.sh
 #echo "hub release create -t ${COMMIT} -m v${RELEASE_VERSION} v${RELEASE_VERSION}" >> dist/publish.sh
 echo "for f in \$(ls ./dist/artifacts) ; do" >> dist/publish.sh
-echo "   hub release edit -m v${RELEASE_VERSION} -a ./dist/artifacts/\${f} v${RELEASE_VERSION}" >> dist/publish.sh
+echo "   hub release edit -m ${RELEASE_VERSION} -a ./dist/artifacts/\${f} ${RELEASE_VERSION}" >> dist/publish.sh
 echo "done" >> dist/publish.sh
-echo "hub release edit -m v${RELEASE_VERSION} -a ./dist/build_${ARCH}.log v${RELEASE_VERSION}" >> dist/publish.sh
+#echo "hub release edit -m ${RELEASE_VERSION} -a ./dist/build_${ARCH}.log ${RELEASE_VERSION}" >> dist/publish.sh
 
 chmod 755 dist/publish.sh
