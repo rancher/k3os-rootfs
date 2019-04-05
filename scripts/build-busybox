@@ -50,7 +50,7 @@ busybox_install()
 
     if [ "$build" == "build" ]; then
         make
-        tar cvJf $target -C output/images .
+        mv output/images/rootfs.tar.xz $target
     fi
 }
 
