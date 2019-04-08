@@ -11,4 +11,4 @@ echo "about to build ${ARCH}"
 mkdir -p ${DIST}/artifacts
 
 echo "++++++++ BUILDING ${ARCH}"
-./scripts/build-busybox "build" ${CONFIG}/${ARCH}/buildroot-config ${CONFIG}/busybox-dynamic.config ${DIST}/artifacts/${ARCH}.tar.xz
+./scripts/build-busybox "build" ${CONFIG}/${ARCH}/buildroot-config ${CONFIG}/busybox-dynamic.config ${DIST}/artifacts/rootfs_${ARCH}.tar.xz
