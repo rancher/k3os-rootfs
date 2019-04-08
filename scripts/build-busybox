@@ -5,6 +5,7 @@ cd $(dirname $0)/..
 
 : ${ARTIFACTS:=$(pwd)/assets}
 : ${BUILD:=$(pwd)/build}
+: ${DIST:=$(pwd)/dist}
 
 busybox_install()
 {
@@ -45,7 +46,7 @@ busybox_install()
 
     if [ "$build" == "config" ]; then
         make busybox-menuconfig
-        cp output/build/busybox-*/.config ${target}.$(basename $bbconf)
+        cp output/build/busybox-*/.config ${DIST}/artifacts/busybox-dynamic.config
     fi
 
     if [ "$build" == "build" ]; then
